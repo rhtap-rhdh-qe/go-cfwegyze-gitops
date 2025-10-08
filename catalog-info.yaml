@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-cfwegyze-gitops
+  description: This is GitOps manifest for go-cfwegyze   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-cfwegyze
+    backstage.io/kubernetes-id: go-cfwegyze 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: rhtap-rhdh-qe/go-cfwegyze-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: rhtap-rhdh-qe.go-cfwegyze-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-cfwegyze
